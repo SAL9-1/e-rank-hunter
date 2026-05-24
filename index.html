@@ -1,137 +1,15 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+const hunters = {
+    '고준혁': { rank: 'S', ability: '절대질서', age: '1983.08.12', height: '188cm', keywords: '실리주의, 포커페이스' },
+    '한지성': { rank: 'A', ability: '중력 제어', age: '1994.11.03', height: '182cm', keywords: '가학주의자, 나른한 눈매' },
+    '임윤아': { rank: 'A', ability: '환영의 궤적', age: '1998.03.21', height: '164cm', keywords: '집요함, 워커홀릭' },
+    '박하늘': { rank: 'B', ability: '마력 탄환', age: '2002.09.14', height: '166cm', keywords: '허당미, 과몰입러' }
+};
 
-<title>E급부터 시작하는 헌터</title>
-
-<style>
-
-body{
-    margin:0;
-    background:#0b0d12;
-    color:white;
-    font-family:sans-serif;
+function openModal(name) {
+    const info = hunters[name];
+    document.getElementById('modalName').innerText = name;
+    document.getElementById('modalRank').innerText = "등급: " + info.rank;
+    document.getElementById('modalAbility').innerText = "능력: " + info.ability;
+    document.getElementById('modalDesc').innerText = `${info.age} / ${info.height} / ${info.keywords}`;
+    document.getElementById('charModal').style.display = "block";
 }
-
-header{
-    padding:80px 20px;
-    text-align:center;
-    background:linear-gradient(to bottom,#111827,#0b0d12);
-}
-
-h1{
-    font-size:60px;
-    margin-bottom:10px;
-}
-
-.subtitle{
-    color:#9ca3af;
-    font-size:18px;
-}
-
-.container{
-    max-width:1100px;
-    margin:auto;
-    padding:40px 20px;
-}
-
-.card{
-    background:#151922;
-    border:1px solid #2b3242;
-    border-radius:20px;
-    padding:25px;
-    margin-bottom:25px;
-}
-
-.card h2{
-    margin-top:0;
-    color:#c084fc;
-}
-
-.system{
-    color:#93c5fd;
-}
-
-.footer{
-    text-align:center;
-    color:#666;
-    padding:50px 20px;
-}
-
-</style>
-</head>
-
-<body>
-
-<header>
-    <h1>E급부터 시작하는 헌터</h1>
-    <p class="subtitle">
-        세계는 당신의 죽음을 원하지 않는다
-    </p>
-</header>
-
-<div class="container">
-
-    <div class="card">
-        <h2>📖 세계관</h2>
-
-        <p>
-            게이트와 몬스터가 출현한 시대.
-            헌터들은 각자의 능력으로 인류를 지켜낸다.
-        </p>
-
-        <p>
-            하지만 당신은 가장 낮은 등급인 E급으로 각성하게 된다.
-        </p>
-    </div>
-
-    <div class="card">
-        <h2>⚔ 주요 시스템</h2>
-
-        <p class="system">
-            [𝕋] 실제등급 시스템
-        </p>
-
-        <p class="system">
-            관계 이모지 시스템
-        </p>
-
-        <p class="system">
-            성장 프로토콜
-        </p>
-    </div>
-
-    <div class="card">
-        <h2>🩸 주요 인물</h2>
-
-        <p>
-            정도현 / 그림자 묘지
-        </p>
-
-        <p>
-            백무결 / 성계의 붕괴
-        </p>
-
-        <p>
-            유채린 / 안식
-        </p>
-    </div>
-
-</div>
-
-<div class="footer">
-    E-RANK HUNTER PROJECT
-</div>
-
-<button onclick="document.getElementById('bgm').play()" class="bgm-btn">
-    🎵 BGM PLAY
-</button>
-
-<audio id="bgm" loop>
-    <source src="e_rank_.mp3" type="audio/mpeg">
-</audio>
-
-</body>
-</html>
