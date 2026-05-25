@@ -8,9 +8,38 @@
 <style>
 body{
     margin:0;
-    background:#0b0d12;
+
     color:white;
+
     font-family:sans-serif;
+
+    background:
+    radial-gradient(circle at top,
+    #172554 0%,
+    #0b1120 35%,
+    #020617 100%);
+
+    overflow-x:hidden;
+}
+
+    body::before{
+    content:"";
+
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(circle at 20% 30%,
+    rgba(124,58,237,0.15),
+    transparent 40%),
+
+    radial-gradient(circle at 80% 70%,
+    rgba(59,130,246,0.12),
+    transparent 40%);
+
+    pointer-events:none;
+
+    z-index:-1;
 }
 
 header{
@@ -208,40 +237,6 @@ h1{
     height:100%;
     object-fit:cover;
     border-radius:14px;
-}
-
-    .bg-text{
-    position:fixed;
-    top:20%;
-    left:5%;
-
-    font-size:120px;
-    font-weight:bold;
-
-    color:rgba(124,58,237,0.04);
-
-    z-index:-1;
-
-    transform:rotate(-18deg);
-
-    pointer-events:none;
-}
-    
-    .bg-text2{
-    position:fixed;
-    bottom:10%;
-    right:5%;
-
-    font-size:100px;
-    font-weight:bold;
-
-    color:rgba(59,130,246,0.04);
-
-    z-index:-1;
-
-    transform:rotate(14deg);
-
-    pointer-events:none;
 }
     
 </style>
