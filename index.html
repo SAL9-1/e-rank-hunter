@@ -854,9 +854,9 @@ function renderFaction(factionId){
 
         return `
             <div class="character-card" onclick="showCharacter('${factionId}','${member.id}')">
-                <div class="character-image">
-                    <span>IMAGE</span>
-                </div>
+<div class="character-image">
+    <img src="${member.images[0]}" alt="${member.name}">
+</div>
                 <h3>${member.name}</h3>
                 <p>${subtitle}</p>
             </div>
