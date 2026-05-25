@@ -71,44 +71,6 @@ h1{
     transform:translateY(-3px);
 }
 
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.75);
-    z-index:1000;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
-
-.modal-content{
-    background:#151922;
-    border:1px solid #7c3aed;
-    border-radius:22px;
-    padding:30px;
-    max-width:560px;
-    width:100%;
-    box-shadow:0 0 40px rgba(124,58,237,0.35);
-}
-
-.modal-content h2{
-    color:#c084fc;
-    margin-top:0;
-}
-
-.close{
-    float:right;
-    font-size:26px;
-    cursor:pointer;
-    color:#aaa;
-}
-
-.info{
-    color:#d1d5db;
-    line-height:1.8;
-}
-
 .bgm-btn{
     position:fixed;
     bottom:30px;
@@ -213,6 +175,18 @@ h1{
 
     color:#6b7280;
     margin-bottom:15px;
+}
+    .faction-section{
+    background:#151922;
+    border:1px solid #2b3242;
+    border-radius:24px;
+    padding:28px;
+    margin-bottom:30px;
+}
+
+.faction-desc{
+    color:#9ca3af;
+    line-height:1.8;
 }
 </style>
 </head>
@@ -383,72 +357,12 @@ h1{
     </div>
 
 </section>
-<button onclick="document.getElementById('bgm').play()" class="bgm-btn">
-    🎵 BGM PLAY
-</button>
 
 <audio id="bgm" loop>
     <source src="e_rank_.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-const characters = {
-    go:{
-        name:"고준혁",
-        info:`
-        남 / 1983.08.12 / S<br>
-        직책: 헌터관리국 국장<br>
-        키: 188cm<br>
-        외형: 흑발, 회색눈, 정장<br>
-        성격: 철저한 실리주의, 포커페이스<br>
-        능력: 절대질서<br>
-        설명: 물리법칙 제어 및 영역 내 모든 법칙을 고정하여 이능 무력화와 강제 압착을 일으킨다<br>
-        마력색: 흑갈색마력
-        `
-    },
-    han:{
-        name:"한지성",
-        info:`
-        남 / 1994.11.03 / A<br>
-        직책: 특수수사과 팀장<br>
-        키: 182cm<br>
-        외형: 갈발, 호박색눈, 느슨한 정장, 나른한 눈매<br>
-        성격: 합리적 가학주의자, 여유로운 반항아, 위험한 유머감각<br>
-        능력: 중력 제어<br>
-        설명: 자신과 주변의 중력을 조절하여 가속 및 압살<br>
-        마력색: 검은색마력<br>
-        무기: 쌍권총
-        `
-    },
-    yoon:{
-        name:"임윤아",
-        info:`
-        여 / 1998.03.21 / A<br>
-        직책: 재난대응과 팀장<br>
-        키: 164cm<br>
-        외형: 흑단발, 흑안<br>
-        성격: 집요함, 워커홀릭, 냉철함, 책임감<br>
-        능력: 환영의 궤적<br>
-        설명: 고속이동과 실체화된 마력잔상을 통한 광역기<br>
-        마력색: 짙은청색마력<br>
-        무기: 장도
-        `
-    },
-    park:{
-        name:"박하늘",
-        info:`
-        여 / 2002.09.14 / B<br>
-        직책: 정보분석과 신입<br>
-        키: 166cm<br>
-        외형: 핑크머리, 긴 생머리, 라임색눈, 동글안경<br>
-        성격: 허당미, 성실함, 과몰입러, 상상력 풍부<br>
-        능력: 마력 탄환<br>
-        마력색: 핑크빛마력<br>
-        장비: 플로팅 캐논<br>
-        설명: 하늘 주변을 떠다니며 자동으로 마력 탄환을 발사하는 원형 지원 병기
-        `
-    }
-};
 
 function openModal(id){
     document.getElementById("modal-name").innerHTML = characters[id].name;
