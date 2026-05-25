@@ -12,6 +12,8 @@ body{
     color:white;
     font-family:sans-serif;
 }
+<div class="bg-text">ORACLE</div>
+<div class="bg-text2">LIMIT BREAK</div>
 
 header{
     padding:80px 20px;
@@ -199,9 +201,6 @@ h1{
     line-height:1.8;
 }
 
-body{
-}
-
 .character-card{
     text-align:center;
 }
@@ -229,6 +228,24 @@ body{
 
     pointer-events:none;
 }
+    
+    .bg-text2{
+    position:fixed;
+    bottom:10%;
+    right:5%;
+
+    font-size:100px;
+    font-weight:bold;
+
+    color:rgba(59,130,246,0.04);
+
+    z-index:-1;
+
+    transform:rotate(14deg);
+
+    pointer-events:none;
+}
+    
 </style>
 </head>
 
@@ -398,23 +415,6 @@ body{
     </div>
 
 </section>
-
-<audio id="bgm" loop>
-    <source src="e_rank_.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-
-function openModal(id){
-    document.getElementById("modal-name").innerHTML = characters[id].name;
-    document.getElementById("modal-info").innerHTML = characters[id].info;
-    document.getElementById("modal").style.display = "flex";
-}
-
-function closeModal(){
-    document.getElementById("modal").style.display = "none";
-}
-</script>
 
 <button onclick="document.getElementById('bgm').play()" class="bgm-btn">
     🎵 BGM PLAY
