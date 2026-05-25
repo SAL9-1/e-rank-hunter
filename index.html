@@ -287,6 +287,35 @@ h1{
     object-fit:cover;
     border-radius:14px;
 }
+
+.title-top{
+    font-size:88px;
+    display:block;
+}
+
+.title-bottom{
+    font-size:62px;
+    display:block;
+
+    opacity:0.95;
+}
+    
+@media (max-width:768px){
+
+    .title-top{
+        font-size:64px;
+    }
+
+    .title-bottom{
+        font-size:46px;
+    }
+
+    .subtitle{
+        font-size:18px;
+        padding:0 20px;
+    }
+
+}
     
 </style>
 </head>
@@ -294,8 +323,10 @@ h1{
 <body>
 
 <header>
-    <h1>E급부터 시작하는 헌터</h1>
-    <p class="subtitle">세계는 당신의 죽음을 원하지 않는다</p>
+<h1>
+    <span class="title-top">E급부터</span><br>
+    <span class="title-bottom">시작하는 헌터</span>
+</h1>
 </header>
 
 <!-- ========================= -->
