@@ -163,10 +163,6 @@ h1{margin:0;line-height:1.05;font-weight:700;letter-spacing:-3px;color:#fff;text
 🎵 Track 2
 </button>
 
-<button onclick="togglePause()">
-⏸ Pause
-</button>
-
 </div>
 
 <audio id="bgm" loop></audio>
@@ -208,18 +204,22 @@ function showCharacter(factionId,memberId){const faction=factions[factionId];con
 function closeCharacter(){document.getElementById("character-modal").classList.remove("show")}
 function closeModalByBg(event){if(event.target.id==="character-modal"){closeCharacter()}}
 const bgm = document.getElementById("bgm");
+let currentTrack = "";
 
 function playTrack(src){
+    if(currentTrack === src && !bgm.paused){
+        bgm.pause();
+        return;
+    }
+
+    if(currentTrack === src && bgm.paused){
+        bgm.play();
+        return;
+    }
+
+    currentTrack = src;
     bgm.src = src;
     bgm.play();
-}
-
-function togglePause(){
-    if(bgm.paused){
-        bgm.play();
-    }else{
-        bgm.pause();
-    }
 }
     renderFaction("bureau");
 </script>
