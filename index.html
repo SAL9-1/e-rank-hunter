@@ -51,6 +51,36 @@ h1{margin:0;line-height:1.05;font-weight:700;letter-spacing:-3px;color:#fff;text
 .bgm{position:fixed;bottom:26px;right:26px;border:none;border-radius:999px;padding:16px 26px;font-family:"Noto Serif KR",serif;font-size:16px;color:white;background:linear-gradient(135deg,rgba(76,29,149,.92),rgba(30,41,59,.92));box-shadow:0 10px 35px rgba(76,29,149,.45),inset 0 0 0 1px rgba(255,255,255,.08);cursor:pointer;z-index:1000}
 .footer{text-align:center;padding:40px 20px 60px;color:#6b7280;letter-spacing:4px}
 @media(max-width:768px){header{padding:58px 18px 38px}.system{font-size:11px;letter-spacing:6px;margin-bottom:20px}.title-top{font-size:58px}.title-bottom{font-size:38px}.hero-line{margin-top:32px}.main-tabs{padding-bottom:34px}.wrap{padding:0 16px 80px}.panel{padding:28px;border-radius:28px}.panel h2{font-size:28px}.panel p{font-size:16px}.faction h2{font-size:40px}.faction p{font-size:16px}.character-card{flex-direction:column;align-items:flex-start;padding:18px;gap:18px}.character-image{width:100%}.character-name h3{font-size:36px}.character-name p{font-size:18px}.modal{padding:14px}.modal-content{padding:32px 22px;border-radius:26px}.detail-title{font-size:34px;padding-right:28px}.detail-role{font-size:18px}.detail-desc{font-size:17px}.detail-info{font-size:16px}.detail-gallery{grid-template-columns:1fr}.bgm{right:18px;bottom:20px;padding:13px 20px}}
+.music-player{
+    position:fixed;
+    bottom:26px;
+    right:26px;
+    display:flex;
+    gap:10px;
+    z-index:1000;
+}
+
+.music-player button{
+    border:none;
+    border-radius:999px;
+    padding:14px 18px;
+    font-family:"Noto Serif KR", serif;
+    font-size:14px;
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(76,29,149,0.92),
+        rgba(30,41,59,0.92)
+    );
+
+    box-shadow:
+    0 10px 35px rgba(76,29,149,0.45),
+    inset 0 0 0 1px rgba(255,255,255,0.08);
+
+    cursor:pointer;
+}
 </style>
 </head>
 
@@ -123,8 +153,23 @@ h1{margin:0;line-height:1.05;font-weight:700;letter-spacing:-3px;color:#fff;text
     </div>
 </div>
 
-<button class="bgm" id="bgm-btn" onclick="toggleBgm()">🎵 BGM PLAY</button>
-<audio id="bgm" loop><source src="e_rank_.mp3" type="audio/mpeg"></audio>
+<div class="music-player">
+
+<button onclick="playTrack('e_rank_.mp3')">
+🎵 Track 1
+</button>
+
+<button onclick="playTrack('A_Perfect_Little_Game.mp3')">
+🎵 Track 2
+</button>
+
+<button onclick="togglePause()">
+⏸ Pause
+</button>
+
+</div>
+
+<audio id="bgm" loop></audio>
 <div class="footer">E-RANK HUNTER PROJECT</div>
 
 <script>
@@ -162,8 +207,21 @@ function renderFaction(factionId){const faction=factions[factionId];document.get
 function showCharacter(factionId,memberId){const faction=factions[factionId];const member=faction.members.find(item=>item.id===memberId);const weaponLine=member.weapon?`<p><strong>무기 :</strong> ${member.weapon}</p>`:"";const roleLine=member.role?`<div class="detail-role">${member.role}</div>`:`<div class="detail-role">소속 정보 없음</div>`;const gallery=member.images.map(img=>`<div class="detail-img"><img src="${img}" alt="${member.name}"></div>`).join("");document.getElementById("modal-detail").innerHTML=`<h2 class="detail-title">${member.name} | ${member.rank}</h2>${roleLine}<p class="detail-desc">${member.desc}</p><div class="detail-info"><p><strong>생년월일 :</strong> ${member.birth}</p><p><strong>키 :</strong> ${member.height}</p><p><strong>능력 :</strong> ${member.ability}</p>${weaponLine}</div><div class="detail-gallery">${gallery}</div>`;document.getElementById("character-modal").classList.add("show")}
 function closeCharacter(){document.getElementById("character-modal").classList.remove("show")}
 function closeModalByBg(event){if(event.target.id==="character-modal"){closeCharacter()}}
-function toggleBgm(){const bgm=document.getElementById("bgm");const btn=document.getElementById("bgm-btn");if(isBgmPlaying){bgm.pause();btn.innerHTML="🎵 BGM PLAY";isBgmPlaying=false}else{bgm.play();btn.innerHTML="⏸ BGM PAUSE";isBgmPlaying=true}}
-renderFaction("bureau");
+const bgm = document.getElementById("bgm");
+
+function playTrack(src){
+    bgm.src = src;
+    bgm.play();
+}
+
+function togglePause(){
+    if(bgm.paused){
+        bgm.play();
+    }else{
+        bgm.pause();
+    }
+}
+    renderFaction("bureau");
 </script>
 </body>
 </html>'''
